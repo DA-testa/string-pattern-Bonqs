@@ -1,4 +1,16 @@
-def g():return input().rstrip(), input().rstrip(), input().rstrip() if input_choice == 'I' else open("tests/06").read().splitlines()
-def f(o):print(*o)
-def h(p,t):l,m,n,o=len(p),len(t),hash(p),hash(t[:l]),[];[o.append(i) for i in range(n-l+1)if m-i>=l==o and p==t[i:i+l]or(o,o_hash)=(o,hash(t[i+1:i+l+1]))if i<m-l];return o
-if __name__=='__main__':f(h(*g()))
+def read_input():
+    inp = input()
+    if inp[0] == 'F':
+        with open('./tests/06', 'r') as f:
+            pattern, text = map(str.strip, f.readlines())
+    elif inp[0] == 'I':
+        pattern = input().strip()
+        text = input().strip()
+    return pattern, text
+def print_occurrences(output):
+    print(*output)
+def get_occurrences(pattern, text):
+    occurrences = [i for i in range(len(text) - len(pattern) + 1) if text[i:i+len(pattern)] == pattern]
+    return occurrences
+if __name__ == '__main__':
+    print_occurrences(get_occurrences(*read_input()))
