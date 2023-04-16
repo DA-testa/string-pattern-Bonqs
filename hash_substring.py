@@ -1,9 +1,4 @@
-def r():
-    p = input()
-    if p[0] == 'F':
-        with open('./tests/06') as f: x,t=map(str.strip,f.readlines())
-    else: x,t=input().strip(),input().strip()
-    return x,t
-def l(o): print(*o)
-def g(x,t): return[i for i in range(len(t)-len(x)+1)if t[i:i+len(x)]==x]
-if __name__=='__main__': l(g(*r()))
+def g():return input().rstrip(), input().rstrip(), input().rstrip() if input_choice == 'I' else open("tests/06").read().splitlines()
+def f(o):print(*o)
+def h(p,t):l,m,n,o=len(p),len(t),hash(p),hash(t[:l]),[];[o.append(i) for i in range(n-l+1)if m-i>=l==o and p==t[i:i+l]or(o,o_hash)=(o,hash(t[i+1:i+l+1]))if i<m-l];return o
+if __name__=='__main__':f(h(*g()))
